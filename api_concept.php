@@ -9,8 +9,8 @@
         </header> <!-- End Header -->
         <div id="content">
             <?php
-                $result = file_get_contents('https://api.dribbble.com/shots/popular');
-                $data = json_decode($result);
+                $designs = file_get_contents('https://api.dribbble.com/shots/popular');
+                $data = json_decode($designs);
                 
                 foreach($data as $object) {
                     
@@ -18,10 +18,15 @@
                         
                         $url = $detail->image_url;
                         $title = $detail->title;
+                        $name = $detail->player->name;
+                        $username = $detail->player->username;
+                        $website = $detail->player->website_url;
                         
                         echo '<img class="photo" src="'.$url.'" height="150px" width="150px" alt="'.$title.'" >';
-                        echo '<p>'.ucwords($title).'</p><br />';
-                        
+                        echo '<p>'.ucwords($title).'</p>';
+                        echo '<p>'.ucwords($name).'</p>';
+                        echo '<p>'.$username.'</p>';
+                        echo '<p>'.$website.'</p>';
                     }
                     
                 }
