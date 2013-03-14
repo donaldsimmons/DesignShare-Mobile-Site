@@ -38,8 +38,7 @@
 |
 */
 
-$route['default_controller'] = "welcome";
-$route['404_override'] = '';
+$route['default_controller'] = "design_share/view";
 
 
 /* End of file routes.php */
