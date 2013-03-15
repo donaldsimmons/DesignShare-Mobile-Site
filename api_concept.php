@@ -16,6 +16,8 @@
                     
                     foreach($object as $detail) {
                         
+                        var_dump($detail);
+                        
                         $url = $detail->image_url;
                         $title = $detail->title;
                         $name = $detail->player->name;

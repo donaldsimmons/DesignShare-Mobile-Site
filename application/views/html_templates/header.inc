@@ -9,11 +9,11 @@
             $this->load->helper('url');
         ?>
         
-        <link href="<?php echo base_url('libraries/jquery.mobile-1.3.0.min.css') ?>" type="text/css" rel="stylesheet" />
+        <link href="<?php echo base_url('libraries/designshare_theme.min.css') ?>" type="text/css" rel="stylesheet" />
+        <link href="<?php echo base_url('libraries/jquery.mobile.structure-1.3.0.min.css') ?>" type="text/css" rel="stylesheet" />
+        <link href="<?php echo base_url('css/main.css'); ?>" type=text/css rel="stylesheet />"
+ 
             
     </head>
     <body>
-        <header>
-            <h3>DesignShare</h3>
-        </header> <!-- End Header -->
-        <div id="container">
+        
