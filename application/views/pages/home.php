@@ -1,6 +1,7 @@
-<div id="login_page" data-role="page" >
+<div id="login_page" data-role="page"  data-theme="a">
     <div class="container">
         <div data-role="header">
+            <img class="header_logo" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
             <p class="text_header">Share Your Inspiration</p>
         </div> <!-- End Text_Header Div -->
         <div data-role="content">
@@ -10,7 +11,7 @@
                 <input type="text" name="username" id="username" maxlength="20" size="20" /><br />
                 <label for="password">Password:</label>
                 <input type="text" name="password" id="password" maxlength="20" size="20" /><br />
-                <input type="submit" name="login_button" value="Log In" data-theme="a" />
+                <input type="submit" name="login_button" value="Log In"  />
             </form>
             <p id="signup_link" class="home_text_links"><a href="#signup_page">Sign Up >></a></p>
         </div> <!-- End Content Div -->
@@ -25,6 +26,7 @@
 <div id="signup_page" data-role="page">
     <div class="container">
         <div data-role="header">
+            <img class="header_logo" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
             <p class="text_header">Sign Up Today!</p>
         </div> <!-- End Text_Header Div -->
         <div data-role="content">

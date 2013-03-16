@@ -1,7 +1,7 @@
 <div id="user_list_page" data-role="page">
     <div id="container">
         <div data-role="header">
-            <img id="header_logo" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
+            <img class="header_logo" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
             <p class="text_header">Welcome Back!</p>
             <div data-role="navbar">
                 <ul>
@@ -29,7 +29,7 @@
 <div id="user_profile_page" data-role="page">
     <div id="container">
         <div data-role="header">
-            <img id="header_logo" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
+            <img class="header_logo" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
             <p class="text_header">Welcome Back!</p>
             <div data-role="navbar">
                 <ul>

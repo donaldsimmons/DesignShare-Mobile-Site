@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.25)
 # Database: mdd1303
-# Generation Time: 2013-03-13 15:38:41 -0500
+# Generation Time: 2013-03-15 21:48:36 -0500
 # ************************************************************
 
 
@@ -20,20 +20,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table favorites
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `favorites`;
-
-CREATE TABLE `favorites` (
-  `userId` int(11) NOT NULL,
-  `designId` int(11) NOT NULL,
-  KEY `userId` (`userId`),
-  CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
 # Dump of table users
 # ------------------------------------------------------------
 
@@ -41,27 +27,15 @@ DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
-  `userName` varchar(40) NOT NULL,
+  `userName` varchar(20) NOT NULL,
   `userPass` char(32) NOT NULL,
   `userFullName` varchar(40) NOT NULL,
-  PRIMARY KEY (`userId`)
+  `userSalt` char(8) NOT NULL,
+  PRIMARY KEY (`userId`),
+  UNIQUE KEY `UX_name` (`userName`),
+  UNIQUE KEY `UX_name_pass` (`userName`,`userPass`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-
-INSERT INTO `users` (`userId`, `userName`, `userPass`, `userFullName`)
-VALUES
-	(1,'direwolf','winterfell','Ned Stark'),
-	(2,'stag','lyanna','Robert Baratheon'),
-	(3,'falcon','vale','Jon Arryn'),
-	(4,'trout','riverlands','Brynden Tully'),
-	(5,'dragon','futureking','Rhaegar Targaryen'),
-	(6,'bear','exile','Jorah Mormont'),
-	(7,'lightninglord','resurrected','Beric Dondarrion');
-
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 
