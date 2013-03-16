@@ -6,11 +6,11 @@
         </div> <!-- End Text_Header Div -->
         <div data-role="content">
             <img id="main_logo" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
-            <form action="index.php" method="post">
+            <form action="<?php echo base_url('index.php'); ?>" method="post">
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username" maxlength="20" size="20" /><br />
                 <label for="password">Password:</label>
-                <input type="text" name="password" id="password" maxlength="20" size="20" /><br />
+                <input type="password" name="password" id="password" maxlength="20" size="20" /><br />
                 <input type="submit" name="login_button" value="Log In"  />
             </form>
             <p id="signup_link" class="home_text_links"><a href="#signup_page">Sign Up >></a></p>

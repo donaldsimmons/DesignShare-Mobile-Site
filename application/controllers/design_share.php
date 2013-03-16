@@ -9,9 +9,7 @@
                 show_404();
                 
             }
-            
-            $post = $this->input->post(NULL,TRUE);
-            
+
             $this->load->view('html_templates/header.inc');
             $this->load->view('pages/'.$page.'.php');
             $this->load->view('html_templates/footer.inc');
