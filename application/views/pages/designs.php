@@ -1,3 +1,7 @@
+<!-- Begins Find_Designs_Page jQuery Mobile Page -->
+
+<!-- Displays list of content grabbed from Dribbble API. Users select content and are taken to a detail page. -->
+
 <div id="find_designs_page" data-role="page">
     <div id="container">
         <div data-role="header">

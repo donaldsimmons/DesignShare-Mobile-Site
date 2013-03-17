@@ -1,3 +1,7 @@
+<!-- Begins Details_Page jQuery Mobile Page -->
+
+<!-- Shows details for selected content. Allows users to create and post comments. Contains back link to content list -->
+
 <div id="details_page" data-role="page">
     <div id="container">
         <div data-role="header">
@@ -30,6 +34,11 @@
         </div><!-- End Footer Div -->    
     </div> <!-- End Container Div -->
 </div> <!-- End Details_Page  Div -->
+
+
+<!-- Begins Edit_Comment_Page jQuery Mobile Page -->
+
+<!-- A dialog that allows users to delete comments they've posted -->
 
 <div id="edit_comment_page" data-role="page">
     <div id="container">

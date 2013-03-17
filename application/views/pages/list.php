@@ -1,3 +1,7 @@
+<!-- Begins User_List_Page jQuery Mobile Page -->
+
+<!-- Displays List of User-selected favorites (favs bookmarked and stored in database - originally from Dribbble API) -->
+
 <div id="user_list_page" data-role="page">
     <div id="container">
         <div data-role="header">
@@ -25,6 +29,10 @@
         </div><!-- End Footer Div -->    
     </div> <!-- End Container Div -->
 </div> <!-- End User_List_Page  Div -->
+
+<!-- Begins User_Profile_Page jQuery Mobile Page -->
+
+<!-- Shows current profile information and allows user to update their profile info -->
 
 <div id="user_profile_page" data-role="page">
     <div id="container">

@@ -1,3 +1,7 @@
+<!-- Begins Login_Page jQuery Moblie Page -->
+
+<!-- Will display form for login on initial site load. Contains link to move to signup page -->
+
 <div id="login_page" data-role="page"  data-theme="a">
     <div class="container">
         <div data-role="header">
@@ -6,11 +10,11 @@
         </div> <!-- End Text_Header Div -->
         <div data-role="content">
             <img id="main_logo" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
-            <form action="<?php echo base_url('index.php'); ?>" method="post">
+            <form action="<?php echo base_url('index.php'); ?>" data-ajax="false" method="post">
                 <label for="username">Username:</label>
-                <input type="text" name="username" id="username" maxlength="20" size="20" /><br />
+                <input type="text" name="username" id="username" /><br />
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="password" maxlength="20" size="20" /><br />
+                <input type="password" name="password" id="password" /><br />
                 <input type="submit" name="login_button" value="Log In"  />
             </form>
             <p id="signup_link" class="home_text_links"><a href="#signup_page">Sign Up >></a></p>
@@ -22,6 +26,11 @@
         </div> <!-- End Footer Div -->    
     </div> <!-- End Container Div -->
 </div> <!-- End Page Div -->
+
+
+<!-- Begins Signup_Page jQuery Mobile Page -->
+
+<!-- Displays signup form for users and contains a back link to return to the login page -->
 
 <div id="signup_page" data-role="page">
     <div class="container">
