@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.25)
 # Database: mdd1303
-# Generation Time: 2013-03-16 16:33:09 -0500
+# Generation Time: 2013-03-18 13:10:19 -0500
 # ************************************************************
 
 
@@ -20,20 +20,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table favorites
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `favorites`;
-
-CREATE TABLE `favorites` (
-  `userId` int(11) NOT NULL,
-  `designId` int(11) NOT NULL,
-  KEY `userId` (`userId`),
-  CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
 # Dump of table users
 # ------------------------------------------------------------
 
@@ -44,21 +30,22 @@ CREATE TABLE `users` (
   `userName` varchar(20) NOT NULL,
   `userPass` char(32) NOT NULL,
   `userFullName` varchar(40) NOT NULL,
-  `userSalt` char(8) NOT NULL,
+  `userSalt` char(8) DEFAULT NULL,
+  `userEmail` varchar(40) NOT NULL DEFAULT '',
   PRIMARY KEY (`userId`),
   UNIQUE KEY `UX_name` (`userName`),
   UNIQUE KEY `UX_name_pass` (`userName`,`userPass`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 
-INSERT INTO `users` (`userId`, `userName`, `userPass`, `userFullName`, `userSalt`)
+INSERT INTO `users` (`userId`, `userName`, `userPass`, `userFullName`, `userSalt`, `userEmail`)
 VALUES
-	(1,'direwolf','ice','Ned Stark','Gdjia73k'),
-	(2,'stag','lyanna','Robert Baratheon',''),
-	(3,'dragon','prince','Rhaegar Targaryan',''),
-	(4,'lion','gold','Tywin Lannister','');
+	(1,'direwolf','94fe648734e13df333c6a173b15682f6','Ned Stark','Gdjia73k','stark@north.com'),
+	(2,'stag','62c51635864c9c8b18ef305c7e06eb50','Robert Baratheon','ru47OISg','rbar@stormsend.com'),
+	(3,'dragon','cc507dfc09b0327f09665f1398fa1ab6','Rhaegar Targaryan','75qoWiet','rhatar@kingslanding.com'),
+	(4,'lion','18fc52309fd55e20b479e6e052327739','Tywin Lannister','AgGoa84t','tyWIN@casterlyrock.com');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

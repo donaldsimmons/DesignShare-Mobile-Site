@@ -40,15 +40,15 @@
         </div> <!-- End Text_Header Div -->
         <div data-role="content">
             <h3>Create A New Profile</h3>
-            <form action="?" method="post">
+            <form action="<?php echo base_url('index.php/design_share/signup'); ?>" data-ajax="false" method="post">
                 <label for="full_name">Name:</label>
-                    <input type="text" name="full_name" id="full_name" /><br />
+                    <input type="text" name="full_name" id="full_name" required /><br />
                 <label for="new_username">Username:</label>
-                    <input type="text" name="new_username" id="new_username" /><br />
+                    <input type="text" name="new_username" id="new_username" required/><br />
                 <label for="new_password">Password:</label>
-                    <input type="text" name="new_password" id="new_password" /><br />
+                    <input type="password" name="new_password" id="new_password" required/><br />
                 <label for="new_email">Email:</label>
-                    <input type="text" name="new_email" id="new_email" /><br />
+                    <input type="text" name="new_email" id="new_email" required/><br />
                 <label><input id="newsletter_check" type="checkbox" name="newsletter_check" data-theme="a" /> Sign up for newsletter?</label>
                 <input type="submit" name="signup_button" value="Sign Up" />
             </form>

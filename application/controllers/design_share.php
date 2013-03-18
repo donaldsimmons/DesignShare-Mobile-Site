@@ -67,14 +67,34 @@
                         #authenticate the user's login info
                         $user = $this->designshare_model->getUserByPassword($username,$password);
                         $this->view('list');
-                    }
-                    
+                        unset($post['login_button']);
+                    }  
                     
                 }
                 
             }
             
         }//end Login Function
+        
+        public function signup() {
+            
+            #loads the URL helper class so the base_url() method can be used
+            $this->load->helper('url');
+            
+            #creates variable to hold a reference to the CodeIgniter $_POST variable
+            $post = $this->input->post(NULL,TRUE);
+            
+            #loads the model for sending database queries
+            $this->load->model('designshare_model');
+            
+            $new_user = $this->designshare_model->registerUser($post);
+            
+            $user = $this->designshare_model->getUserByPassword($new_user['user'],$new_user['password']);
+            unset($post['signup_button']);
+            $this->view('list');
+            
+            
+        }//end SignUp Function
     }
 
 ?>
