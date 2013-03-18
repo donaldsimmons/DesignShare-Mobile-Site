@@ -87,12 +87,13 @@
             #loads the model for sending database queries
             $this->load->model('designshare_model');
             
+            #registers the new user in the database, saves returned user info for login
             $new_user = $this->designshare_model->registerUser($post);
             
+            #log the new user in using the getUserByPassword function and the $new_user_info array values
             $user = $this->designshare_model->getUserByPassword($new_user['user'],$new_user['password']);
             unset($post['signup_button']);
             $this->view('list');
-            
             
         }//end SignUp Function
     }
