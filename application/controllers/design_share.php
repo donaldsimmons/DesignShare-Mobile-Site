@@ -4,10 +4,10 @@
         
         public function view($page="home") {
             
-            $model = $this->load->model('designshare_model');
-            
+            #uses conditional to check if request page exists
             if(!file_exists('application/views/pages/'.$page.'.php')) {
                 
+                #if page doesn't exist, show the 404 message
                 show_404();
                 
             }
@@ -24,8 +24,11 @@
             #loads the URL helper class so the base_url() method can be used
             $this->load->helper('url');
             
+            #creates variable to hold a reference to the CodeIgniter $_POST variable
             $post = $this->input->post(NULL,TRUE);
-            $model = $this->load->model('designshare_model');
+            
+            #loads the model for sending database queries
+            $this->load->model('designshare_model');
             
             #uses conditional to check the value for the username input field in the $post array
             if(empty($post['username'])) {
@@ -55,15 +58,17 @@
                     
                     #uses conditional to check for correct username/password format
                     if(preg_match_all('/[^a-z]/',$username) || preg_match_all('/[^a-z]/',$password)) {
-                        #if username or password contains other characters than 'a-z'
-                        #change current page view
-                        $content_page = 'login_error';
-                        #redirect to current page
-                        redirect(base_url('index.php/design_share/view/'.$content_page));
+                        #if username/password aren't all lowercase letters 'a-z'
+                        //run the view function to show the 'login_error' message
+                        $this->view('login_error');
                     }else{
-                        $content_page = 'list';
-                        redirect(base_url('index.php/design_share/view/'.$content_page));
+                        #if username/password are in correct format
+                        
+                        #authenticate the user's login info
+                        $user = $this->designshare_model->getUserByPassword($username,$password);
+                        $this->view('list');
                     }
+                    
                     
                 }
                 
