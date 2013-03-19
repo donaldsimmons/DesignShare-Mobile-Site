@@ -22,15 +22,15 @@
                     <table id="current_info">
                         <tr>
                             <th>Name:</th>
-                            <td>TEST NAME</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th>Username:</th>
-                            <td>TEST USERNAME</td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th>Email:</th>
-                            <td>TEST EMAIL</td>
+                            <td></td>
                         </tr>    
                     </table>
                 </div>

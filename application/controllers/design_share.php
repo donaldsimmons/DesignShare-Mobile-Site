@@ -63,7 +63,18 @@
                         
                         #authenticate the user's login info
                         $user = $this->designshare_model->getUserByPassword($username,$password);
+                        $profile_info = $this->designshare_model->getUserInfo($user);
+                        
+                        #loads a new session for the logged in user
+                        $this->load->library('session');
+                        #stores the user data for id, username, and password in the session cookie
+                        $this->session->set_userdata($user);
+                        #requests and stores the user data for visible user information in the session
+                        $this->session->set_userdata($profile_info);
+                        
+                        #changes the view
                         $this->view('list');
+                        #removes the login button from the $post array
                         unset($post['login_button']);
                     }  
                     
@@ -122,7 +133,7 @@
             
             #redirects page back to home page
             header('Location: '.base_url('index.php'));
-            #exits the current function
+            #exits the current function 
             exit;
             
         }//end DeleteUser Function

@@ -14,7 +14,7 @@
             #when the user attempts a login, uses CodeIgniter query syntax to access database
             
             #select user information from the database with SQL statement
-            $sql = "SELECT userId as userId,userName AS username,userPass AS password
+            $sql = "SELECT userId AS userId,userName AS username,userPass AS password
             FROM users
             WHERE (userName = ?)
                 AND (userPass = MD5(CONCAT(userSalt,?)))
@@ -24,7 +24,7 @@
             $statement = $this->db->query($sql,array($username,$password));
             
             #return and array consisting of user info
-            return $statement->result_array();
+            return $statement->row_array();
             
         }//end GetUserByPassword Function
         
@@ -58,6 +58,26 @@
             return $new_user_info;
             
         }//end RegisterUser Function
+        
+        public function getUserInfo($user_info) {
+            
+            #stores the 'userId' value of the $user_info argument
+            $user_id = $user_info['userId'];
+            
+            #creates a request to the server for the pertinent user data
+            $sql = "SELECT userFullName AS name, userEmail AS email
+                FROM users
+                WHERE (userId = ?)
+            ";
+            
+            #queries the database for the desired user info, passing in the userId string cast as
+            #an integer
+            $statement = $this->db->query($sql,array((int)$user_id));
+            
+            #returns the array of results
+            return $statement->row_array();
+            
+        }//end GetUserInfo Function
         
         public function updateUserInfo($update_info) {
             
