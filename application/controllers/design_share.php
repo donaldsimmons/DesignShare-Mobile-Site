@@ -103,8 +103,29 @@
             $this->load->model('designshare_model');
             
             $this->designshare_model->updateUserInfo($post);
+            $this->view('list');
             
         }//end UpdateUser Function
+        
+        public function deleteUser() {
+            #loads the URL helper class so the base_url() method can be used
+            $this->load->helper('url');
+            
+            #creates variable to hold a reference to the CodeIgniter $_POST variable
+            $post = $this->input->post(NULL,TRUE);
+            
+            #loads the model for sending database queries
+            $this->load->model('designshare_model');
+            
+            #deletes user
+            $this->designshare_model->deleteUser();
+            
+            #redirects page back to home page
+            header('Location: '.base_url('index.php'));
+            #exits the current function
+            exit;
+            
+        }//end DeleteUser Function
     }
 
 ?>

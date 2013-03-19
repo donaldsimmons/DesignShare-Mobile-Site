@@ -19,6 +19,11 @@ and (min-width : 200px) {
         font-size: .6em;
         margin-left: 5%;
     }
+    
+        #current_info th {
+        text-align: right;
+        margin: 0;
+    }
 }
 
 @media only screen
@@ -42,6 +47,11 @@ and (min-width : 300px) {
         width: 75px;
         font-size: .7em;
         margin-left: 6%;
+    }
+    
+        #current_info th {
+        text-align: right;
+        margin: 0;
     }
 }
 
@@ -73,7 +83,6 @@ and (max-width : 519px) {
         text-align: right;
         margin: 0;
     }
-    
 }
 
 @media only screen
@@ -96,6 +105,11 @@ and (max-width : 769px) {
         width: 200px;
         font-size: .9em;
         margin-left: 13%;
+    }
+    
+        #current_info th {
+        text-align: right;
+        margin: 0;
     }
 }
 
@@ -120,6 +134,11 @@ and (max-width : 1096px) {
         font-size: 1em;
         margin-left: 14%;
     }
+    
+        #current_info th {
+        text-align: right;
+        margin: 0;
+    }
 }
 
 @media only screen
@@ -143,6 +162,13 @@ and (max-width : 1284px) {
         font-size: 1.1em;
         margin-left: 16%;
     }
+    
+        #current_info th {
+        text-align: right;
+        margin: 0;
+    }
+    
+    
 }
 
 .container {

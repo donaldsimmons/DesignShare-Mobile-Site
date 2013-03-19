@@ -45,8 +45,9 @@
                             <input type="password" name="updated_password" id="updated_password" />
                         <label for="updated_email">Email:</label>
                             <input type="text" name="updated_email" id="updated_email" />
-                        <input type="submit" name="update_profile_button" value="Update Profile" data-theme="a" />
+                        <input type="submit" id="update_profile_button" name="update_profile_button" value="Update Profile" data-theme="a" />
                     </form>
+                    <p id="delete_link" class="home_text_links"><a href="<?php echo base_url('index.php/design_share/deleteUser'); ?>" data-ajax="false">Delete User?</a></p>
                 </div>
             </div> <!-- End Current_Profile_Info Div -->
         </div> <!-- End Content Div -->

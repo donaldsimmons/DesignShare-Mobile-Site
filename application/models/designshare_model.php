@@ -136,6 +136,20 @@
             
         }//end UpdateUserInfo Function
         
+        public function deleteUser() {
+            
+            #creates an SQL query to delete the selected user
+            $sql = "DELETE FROM users
+                WHERE (userId = ?);
+            ";
+            
+            $id = 6;
+            
+            #queries the database to remove the current user's record
+            $statement = $this->db->query($sql,array($id));
+            
+        }//end DeleteUser Function
+        
         public function generateSalt() {
             #uses a for loop to create a salt for encoding user-created passwords
             
