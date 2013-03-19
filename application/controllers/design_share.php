@@ -21,9 +21,6 @@
         
         public function login() {
             
-            #loads the URL helper class so the base_url() method can be used
-            $this->load->helper('url');
-            
             #creates variable to hold a reference to the CodeIgniter $_POST variable
             $post = $this->input->post(NULL,TRUE);
             
@@ -78,9 +75,6 @@
         
         public function signup() {
             
-            #loads the URL helper class so the base_url() method can be used
-            $this->load->helper('url');
-            
             #creates variable to hold a reference to the CodeIgniter $_POST variable
             $post = $this->input->post(NULL,TRUE);
             
@@ -96,6 +90,21 @@
             $this->view('list');
             
         }//end SignUp Function
+        
+        public function updateUser() {
+            
+            #loads the URL helper class so the base_url() method can be used
+            $this->load->helper('url');
+            
+            #creates variable to hold a reference to the CodeIgniter $_POST variable
+            $post = $this->input->post(NULL,TRUE);
+            
+            #loads the model for sending database queries
+            $this->load->model('designshare_model');
+            
+            $this->designshare_model->updateUserInfo($post);
+            
+        }//end UpdateUser Function
     }
 
 ?>

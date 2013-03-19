@@ -68,6 +68,12 @@ and (max-width : 519px) {
         font-size: .85em;
         margin-left: 8%;
     }
+    
+    #current_info th {
+        text-align: right;
+        margin: 0;
+    }
+    
 }
 
 @media only screen
