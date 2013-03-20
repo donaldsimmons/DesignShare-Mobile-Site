@@ -14,6 +14,17 @@ and (min-width : 200px) {
         float: right;
     }
     
+    .list_image {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    
+    .list_text {
+        margin-top: 6px;
+        font-size: 1.1 em;
+        font-weight: bold;
+    }
+    
     .footer p {
         width: 60px;
         font-size: .6em;
@@ -41,6 +52,17 @@ and (min-width : 300px) {
         margin-right: 10px;
         display: inline;
         float: right;
+    }
+    
+    .list_image {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    
+    .list_text {
+        margin-top: 6px;
+        font-size: 1.1 em;
+        font-weight: bold;
     }
     
     .footer p {
@@ -73,6 +95,17 @@ and (max-width : 519px) {
         float: right;
     }
     
+    .list_image {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    
+    .list_text {
+        margin-top: 6px;
+        font-size: 1.1 em;
+        font-weight: bold;
+    }
+    
     .footer p {
         width: 100px;
         font-size: .85em;
@@ -99,6 +132,17 @@ and (max-width : 769px) {
         margin-right: 10px;
         display: inline;
         float: right;
+    }
+    
+    .list_image {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    
+    .list_text {
+        margin-top: 6px;
+        font-size: 1.1 em;
+        font-weight: bold;
     }
     
     .footer p {
@@ -129,6 +173,17 @@ and (max-width : 1096px) {
         float: right;
     }
     
+    .list_image {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    
+    .list_text {
+        margin-top: 6px;
+        font-size: 1.1 em;
+        font-weight: bold;
+    }
+    
     .footer p {
         width: 300px;
         font-size: 1em;
@@ -155,6 +210,17 @@ and (max-width : 1284px) {
         margin-right: 10px;
         display: inline;
         float: right;
+    }
+    
+    .list_image {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    
+    .list_text {
+        margin-top: 6px;
+        font-size: 1.1 em;
+        font-weight: bold;
     }
     
     .footer p {

@@ -17,9 +17,20 @@
         </div> <!-- End Header Div -->
         <div data-role="content">
             <ul data-role="listview" data-theme="e">
-                <li><a href="#">Sample Design</a></li>
-                <li><a href="#">Another Sample Design</a></li>
-                <li><a href="#">A Third Sample Design</a></li>
+                <?php
+                    #uses PHP to cycle through API results and dynamically create lists items
+                    #for each result
+                    
+                    foreach($shots_data as $shot) {
+                        #list items use information from API, accessed via the $shots['shots_data']
+                        #array key that was passed with this page's view() function
+                        echo '<li><a href="#">
+                            <img class="list_image" src="'.$shot['image_url'].'" alt="'.$shot['title'].'" />
+                            <p class="list_text">'.$shot['title'].'</p>
+                            <p class="list_text">'.$shot['player_name'].'</p>
+                        </a></li>';
+                    }
+                ?>
             </ul>
         </div> <!-- End Content Div -->
         <div class="footer" data-role="footer">

@@ -2,7 +2,7 @@
 
     class Design_Share extends CI_Controller{
         
-        public function view($page="home") {
+        public function view($page="home",$data=array()) {
             
             #uses conditional to check if request page exists
             if(!file_exists('application/views/pages/'.$page.'.php')) {
@@ -14,7 +14,7 @@
             
             #loads the header and footer include files for the page, as well as the currentPage
             $this->load->view('html_templates/header.inc');
-            $this->load->view('pages/'.$page.'.php');
+            $this->load->view('pages/'.$page.'.php',$data);
             $this->load->view('html_templates/footer.inc');
             
         }//end View Function
@@ -137,6 +137,19 @@
             exit;
             
         }//end DeleteUser Function
+        
+        public function designs() {
+            
+            #loads the model for sending database queries
+            $this->load->model('designshare_model');
+            
+            #stores the API content for displaying the list of artwork
+            $shots = $this->designshare_model->getListFromAPI();
+            
+            #displays the designs page and passes in the data for the list items
+            $this->view('designs',$shots);
+            
+        }//end Designs Function
     }
 
 ?>

@@ -10,13 +10,17 @@
         <div id="content">
             <?php
                 $designs = file_get_contents('https://api.dribbble.com/shots/popular');
-                $data = json_decode($designs);
+                $data = (array)json_decode($designs);
+                
+                var_dump($data);
                 
                 foreach($data as $object) {
                     
+                #var_dump($object);
+                    
                     foreach($object as $detail) {
                         
-                        var_dump($detail);
+                        #var_dump($detail);
                         
                         $url = $detail->image_url;
                         $title = $detail->title;

@@ -188,6 +188,45 @@
             
             return $result;
         }//end GenerateSalt Function
+        
+        public function getListFromAPI() {
+            
+            #loads the content from the Dribbble API
+            $designs = file_get_contents('https://api.dribbble.com/shots/popular');
+            #decodes the returned JSON results and then casts it as an array for manipulation
+            $data = (array)json_decode($designs);
+            
+            #stores the returned data for the different list items in the $shots array
+            $shots = $data['shots'];
+            
+            #uses foreach loop to isolate each result
+            foreach($shots as &$design) {
+                
+                #id,image_url,created_at,player->username,player->name,player->location
+                #id,image_url,title,player->name
+                
+                #for each design, store the necessary information for propogating the desing list
+                $id = $design->id;
+                $title = $design->title;
+                $image_url = $design->image_url;
+                $player_name = $design->player->name;
+                
+                #creates an array to store the values for each result
+                $shot_single = array('id'=>$id,'title'=>$title,'image_url'=>$image_url,'player_name'=>$player_name);
+                
+                #adds the results array to the main array, which will hold all of the necessary 
+                #result information
+                $shots_set[] = $shot_single;
+            }
+            
+            #creates an array that will be passed to the details list html page
+            #stores the collective results
+            $shots['shots_data'] = $shots_set;
+            
+            #returns the results to the controller
+            return $shots;
+            
+        }//end GetListFromAPI Function
     }
 
 ?>

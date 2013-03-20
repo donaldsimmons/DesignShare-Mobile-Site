@@ -2,6 +2,12 @@
 
 <!-- Shows current profile information and allows user to update their profile info -->
 
+<?php
+    $name = $this->session->userdata('name');
+    $username = $this->session->userdata('username');
+    $email = $this->session->userdata('email');
+?>
+
 <div id="user_profile_page" data-role="page">
     <div id="container">
         <div data-role="header">
@@ -10,7 +16,7 @@
             <div data-role="navbar">
                 <ul>
                     <li><a href="#user_list_page">My Art</a></li>
-                    <li><a href="<?php echo base_url('index.php/design_share/view/designs'); ?>">Designs</a></li>
+                    <li><a href="<?php echo base_url('index.php/design_share/designs'); ?>" data-ajax="false">Designs</a></li>
                     <li><a href="#">Log Out</a></li>
                 </ul>
             </div> <!-- End NavBar Div -->
@@ -22,15 +28,15 @@
                     <table id="current_info">
                         <tr>
                             <th>Name:</th>
-                            <td></td>
+                            <td><?php echo '<p>'.$name.'</p>'; ?></td>
                         </tr>
                         <tr>
                             <th>Username:</th>
-                            <td></td>
+                            <td><?php echo '<p>'.$username.'</p>'; ?></td>
                         </tr>
                         <tr>
                             <th>Email:</th>
-                            <td></td>
+                            <td><?php echo '<p>'.$email.'</p>'; ?></td>
                         </tr>    
                     </table>
                 </div>
@@ -59,6 +65,7 @@
     </div> <!-- End Container Div -->
 </div> <!-- End User_List_Page  Div -->
 
+
 <!-- Begins User_List_Page jQuery Mobile Page -->
 
 <!-- Displays List of User-selected favorites (favs bookmarked and stored in database - originally from Dribbble API) -->
@@ -71,7 +78,7 @@
             <div data-role="navbar">
                 <ul>
                     <li><a href="#user_profile_page">Edit Profile</a></li>
-                    <li><a href="<?php echo base_url('index.php/design_share/view/designs'); ?>">Designs</a></li>
+                    <li><a href="<?php echo base_url('index.php/design_share/designs'); ?>" data-ajax="false">Designs</a></li>
                     <li><a href="#">Log Out</a></li>
                 </ul>
             </div> <!-- End NavBar Div -->
