@@ -150,6 +150,19 @@
             $this->view('designs',$shots);
             
         }//end Designs Function
+        
+        public function details($design_id) {
+            
+            #loads the model for sending database queries
+            $this->load->model('designshare_model');
+            
+            #requests the design-specific details for the design id number selected by the user
+            $details = $this->designshare_model->getDetailsFromAPI($design_id);
+            
+            #calls the view function and passes the $details array that holds API values
+            $this->view('detail',$details);
+            
+        }//end Details Function
     }
 
 ?>

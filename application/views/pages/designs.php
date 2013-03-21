@@ -24,7 +24,7 @@
                     foreach($shots_data as $shot) {
                         #list items use information from API, accessed via the $shots['shots_data']
                         #array key that was passed with this page's view() function
-                        echo '<li><a href="#">
+                        echo '<li><a href="'.base_url('index.php/design_share/details/'.$shot['id'].'').'" data-ajax="false">
                             <img class="list_image" src="'.$shot['image_url'].'" alt="'.$shot['title'].'" />
                             <p class="list_text">'.$shot['title'].'</p>
                             <p class="list_text">'.$shot['player_name'].'</p>
@@ -40,3 +40,4 @@
         </div><!-- End Footer Div -->    
     </div> <!-- End Container Div -->
 </div> <!-- End Find_Designs_Page  Div -->
+

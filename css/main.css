@@ -35,10 +35,22 @@ and (min-width : 200px) {
         text-align: right;
         margin: 0;
     }
+    
+    #design_image {
+        width: 75px;
+        height: 50px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    
+    #detail_list {
+        font-size: .65em;
+    }
 }
 
 @media only screen
-and (min-width : 300px) {
+and (min-width : 300px)
+and (max-width : 349px) {
     .header_logo {
         margin-top: -5px;
         margin-bottom: -10px;
@@ -75,11 +87,22 @@ and (min-width : 300px) {
         text-align: right;
         margin: 0;
     }
+    
+    #design_image {
+        width: 115px;
+        height: 90px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    
+    #design_list {
+        font-size: .8em;
+    }
 }
 
 @media only screen
 and (min-width : 350px)
-and (max-width : 519px) {
+and (max-width : 520px) {
     .header_logo {
         margin-bottom: 10px;
         margin-bottom: -20px;
@@ -116,11 +139,23 @@ and (max-width : 519px) {
         text-align: right;
         margin: 0;
     }
+    
+    #design_image {
+        width: 150px;
+        height: 100px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    
+    #detail_list {
+        font-size: .8em;
+    }
+    
 }
 
 @media only screen
 and (min-width : 520px)
-and (max-width : 769px) {
+and (max-width : 770px) {
     .header_logo {
         display: inline;
         width: 125px;
@@ -154,6 +189,17 @@ and (max-width : 769px) {
         #current_info th {
         text-align: right;
         margin: 0;
+    }
+    
+    #design_image {
+        width: 300px;
+        height: 225px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    
+    #detail_list {
+        font-size: .9em;
     }
 }
 
@@ -190,9 +236,20 @@ and (max-width : 1096px) {
         margin-left: 14%;
     }
     
-        #current_info th {
+    #current_info th {
         text-align: right;
         margin: 0;
+    }
+    
+    #design_image {
+        width: 350px;
+        height: 275px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    
+    #detail_list {
+        font-size: 1em;
     }
 }
 
@@ -229,12 +286,21 @@ and (max-width : 1284px) {
         margin-left: 16%;
     }
     
-        #current_info th {
+    #current_info th {
         text-align: right;
         margin: 0;
     }
     
+    #design_image {
+        width: 450px;
+        height: 325px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
     
+    #detail_list {
+        font-size: 1em;
+    }
 }
 
 .container {
@@ -242,13 +308,26 @@ and (max-width : 1284px) {
 }
 
 #main_logo {
+    float: left;
     width: 100%;
     height: 100%;
     margin-top: -25px;
     margin-bottom: -10px;
 }
 
+#detail_list {
+    text-align: left;
+    margin-bottom: 10px;
+}
 
+#detail_list td{
+    padding-left: 15px;
+}
+
+#comment_form {
+    margin-top: 35px;
+}
+    
 .home_text_links {
     font-size: .9em;
     margin-top: 30px;

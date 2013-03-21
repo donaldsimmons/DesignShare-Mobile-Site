@@ -202,9 +202,6 @@
             #uses foreach loop to isolate each result
             foreach($shots as &$design) {
                 
-                #id,image_url,created_at,player->username,player->name,player->location
-                #id,image_url,title,player->name
-                
                 #for each design, store the necessary information for propogating the desing list
                 $id = $design->id;
                 $title = $design->title;
@@ -227,6 +224,34 @@
             return $shots;
             
         }//end GetListFromAPI Function
+        
+        public function getDetailsFromAPI($id) {
+            
+            #returns design-specific details from API using the id paramter passed in
+            $details = file_get_contents('https://api.dribbble.com/shots/'.$id);
+            #stores the decoded json from the API request as an array
+            $data = (array) json_decode($details);
+            
+            #explodes the date string so it can be reformatted for readability
+            $date = explode(' ',$data['created_at']);
+            
+            #uses substr() function to select the month and date substrings and the year substrings
+            #concatenates the substrings to get 'MM/DD/YYYY' format
+            $formatted_date = substr($date[0],5,5).'/'.substr($date[0],0,4);
+            
+            #stores the necessary data in an array, separated by keys
+            #data['player'] is an object, so any values stored there need to be accessed with
+            #object notation
+            $details_array = array('title'=>$data['title'],'created_at'=>$formatted_date,
+                                   'image_url'=>$data['image_url'],'player_name'=>$data['player']->name,
+                                   'player_twitter'=>$data['player']->twitter_screen_name,
+                                   'player_location'=>$data['player']->location,
+                                   'player_url'=>$data['player']->website_url);
+            
+            #returns the array for use in the HTML
+            return $details_array;
+            
+        }//end GetDetailsFromAPI Function
     }
 
 ?>
