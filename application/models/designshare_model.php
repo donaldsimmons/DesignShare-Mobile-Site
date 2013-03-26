@@ -252,6 +252,24 @@
             return $details_array;
             
         }//end GetDetailsFromAPI Function
+        
+        public function loadComments($design_id) {
+            
+            #creates a SELECT statement to select comment info from the database
+            $sql = "SELECT commentId AS commentId, commentText AS comment, userId AS user,
+                submitTime AS timestamp  
+                FROM comments
+                WHERE (designId = ?)
+            ";
+            
+            #queries the database using the sql statement and the design_id gotten from the API for
+            #this specific design
+            $statement = $this->db->query($sql,array($design_id));
+            
+            #returns an array of comments for the selected designs
+            return $statement->result_array();
+            
+        }//end LoadComments Function
     }
 
 ?>

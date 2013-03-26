@@ -159,8 +159,15 @@
             #requests the design-specific details for the design id number selected by the user
             $details = $this->designshare_model->getDetailsFromAPI($design_id);
             
-            #calls the view function and passes the $details array that holds API values
-            $this->view('detail',$details);
+            #loads any comments for this design that might be stored in the database
+            $comments = $this->designshare_model->loadComments($design_id);
+            
+            #creates a new array for holding all the detail page's content
+            $detail_page_content = array('details'=>$details,'comments'=>$comments);
+            
+            #calls the view function and passes the $detail_page_content array that holds API values
+            #and the comments for the design
+            $this->view('detail',$detail_page_content);
             
         }//end Details Function
     }

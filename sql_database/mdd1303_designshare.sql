@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.25)
 # Database: mdd1303
-# Generation Time: 2013-03-19 18:07:57 -0500
+# Generation Time: 2013-03-26 15:58:20 -0500
 # ************************************************************
 
 
@@ -20,67 +20,22 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table favorites
+# Dump of table comments
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `favorites`;
+DROP TABLE IF EXISTS `comments`;
 
-CREATE TABLE `favorites` (
+CREATE TABLE `comments` (
+  `commentId` int(11) NOT NULL AUTO_INCREMENT,
+  `commentText` text NOT NULL,
   `userId` int(11) NOT NULL,
-  `designId` int(11) NOT NULL,
+  `designId` int(20) NOT NULL,
+  `submitTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`commentId`),
   KEY `userId` (`userId`),
-  CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`)
+  CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-# Dump of table sessions
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `sessions`;
-
-CREATE TABLE `sessions` (
-  `session_id` varchar(40) NOT NULL DEFAULT '0',
-  `ip_address` varchar(45) NOT NULL DEFAULT '0',
-  `user_agent` varchar(120) NOT NULL,
-  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
-  `user_data` text NOT NULL,
-  PRIMARY KEY (`session_id`),
-  KEY `last_activity_idx` (`last_activity`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-
-# Dump of table users
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `users`;
-
-CREATE TABLE `users` (
-  `userId` int(11) NOT NULL AUTO_INCREMENT,
-  `userName` varchar(20) NOT NULL,
-  `userPass` char(32) NOT NULL,
-  `userFullName` varchar(40) NOT NULL,
-  `userSalt` char(8) DEFAULT NULL,
-  `userEmail` varchar(40) NOT NULL DEFAULT '',
-  PRIMARY KEY (`userId`),
-  UNIQUE KEY `UX_name` (`userName`),
-  UNIQUE KEY `UX_name_pass` (`userName`,`userPass`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-
-INSERT INTO `users` (`userId`, `userName`, `userPass`, `userFullName`, `userSalt`, `userEmail`)
-VALUES
-	(1,'direwolf','94fe648734e13df333c6a173b15682f6','Ned Stark','Gdjia73k','stark@north.com'),
-	(2,'stag','62c51635864c9c8b18ef305c7e06eb50','Robert Baratheon','ru47OISg','rbar@stormsend.com'),
-	(3,'dragon','cc507dfc09b0327f09665f1398fa1ab6','Rhaegar Targaryan','75qoWiet','rhatar@kingslanding.com'),
-	(4,'lion','18fc52309fd55e20b479e6e052327739','Tywin Lannister','AgGoa84t','tyWIN@casterlyrock.com'),
-	(5,'lightningbolt','677545f5624e3183a3d83ee9fc5da631','Beric Dondarrion','tcZPgLNM','lightninglord@blackhaven.com');
-
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 
