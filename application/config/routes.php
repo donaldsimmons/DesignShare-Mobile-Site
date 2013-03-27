@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "design_share/view";
 $route['login/submit'] = "login/submit";
+$route['logout'] = "logout/signout";
 
 
 /* End of file routes.php */

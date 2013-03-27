@@ -11,7 +11,7 @@
                 <ul>
                     <li><a href="<?php echo base_url('index.php#user_profile_page'); ?>">Edit Profile</a></li>
                     <li><a href="<?php echo base_url('index.php'); ?>">My Art</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li><a href="<?php echo base_url('index.php/logout/signout'); ?>">Log Out</a></li>
                 </ul>
             </div> <!-- End NavBar Div -->
         </div> <!-- End Header Div -->

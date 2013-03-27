@@ -9,10 +9,10 @@
             <p class="text_header">Upload Your Own Design!</p>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="<?php echo base_url('index.php#user_profile_page'); ?>">Edit Profile</a></li>
-                    <li><a href="<?php echo base_url('index.php'); ?>">My Art</a></li>
+                    <li><a href="<?php echo base_url('index.php'); ?>">Edit Profile</a></li>
+                    <li><a href="<?php echo base_url('index.php#user_list_page'); ?>" data-ajax="false">My Art</a></li>
                     <li><a href="<?php echo base_url('index.php/design_share/designs'); ?>">Designs</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li><a href="<?php echo base_url('index.php/logout/signout'); ?>">Log Out</a></li>
                 </ul>
             </div> <!-- End NavBar Div -->
         </div> <!-- End Header Div -->
