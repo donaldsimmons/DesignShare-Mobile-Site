@@ -9,8 +9,8 @@
             <p class="text_header">Welcome Back!</p>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="<?php echo base_url('index.php#user_profile_page'); ?>">Edit Profile</a></li>
-                    <li><a href="<?php echo base_url('index.php'); ?>">My Art</a></li>
+                    <li><a href="<?php echo base_url('index.php'); ?>">Edit Profile</a></li>
+                    <li><a href="<?php echo base_url('index.php/design_share/view/list#user_list_page'); ?>" data-ajax="false">My Art</a></li>
                     <li><a href="<?php echo base_url('index.php/logout/signout'); ?>">Log Out</a></li>
                 </ul>
             </div> <!-- End NavBar Div -->
@@ -24,7 +24,7 @@
                     foreach($shots_data as $shot) {
                         #list items use information from API, accessed via the $shots['shots_data']
                         #array key that was passed with this page's view() function
-                        echo '<li><a href="'.base_url('index.php/design_share/details/'.$shot['id'].'').'" data-ajax="false">
+                        echo '<li><a href="'.base_url('index.php/details/'.$shot['id'].'').'" data-ajax="false">
                             <img class="list_image" src="'.$shot['image_url'].'" alt="'.$shot['title'].'" />
                             <p class="list_text">'.$shot['title'].'</p>
                             <p class="list_text">'.$shot['player_name'].'</p>

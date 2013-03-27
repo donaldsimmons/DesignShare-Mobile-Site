@@ -41,6 +41,8 @@
 $route['default_controller'] = "design_share/view";
 $route['login/submit'] = "login/submit";
 $route['logout'] = "logout/signout";
+$route['designs'] = "design_share/designs";
+$route['details/(:num)'] = "design_share/details/$1";
 
 
 /* End of file routes.php */
