@@ -2,7 +2,18 @@
 
     class Design_Share extends CI_Controller{
         
-        public function view($page="home",$data=array()) {
+        public function __construct() {
+            
+            #when the class is called run the parent's constructor function to inherit from parent
+            #class
+            parent::__construct();
+            
+            #start a session for the current user
+            $this->load->library('session');
+            
+        }//end __Construct Function
+        
+        public function view($page="list",$data=array()) {
             
             #uses conditional to check if request page exists
             if(!file_exists('application/views/pages/'.$page.'.php')) {
@@ -12,77 +23,24 @@
                 
             }
             
-            #loads the header and footer include files for the page, as well as the currentPage
-            $this->load->view('html_templates/header.inc');
-            $this->load->view('pages/'.$page.'.php',$data);
-            $this->load->view('html_templates/footer.inc');
-            
-        }//end View Function
+            #uses conditional to check if the user is logged in when the view method is called
+            if($this->session->userdata('login_state') == TRUE) {
+                #if a user is logged in
+                
+                #loads the header and footer include files for the page, and the desired page
+                $this->load->view('html_templates/header.inc');
+                $this->load->view('pages/'.$page.'.php',$data);
+                $this->load->view('html_templates/footer.inc');
+            }else{
+                #if a user isn't logged in
+                
+                #loads the header and footer include files for the page, and the home page sign-in forms
+                $this->load->view('html_templates/header.inc');
+                $this->load->view('pages/home.php',$data);
+                $this->load->view('html_templates/footer.inc');
+            }   
         
-        public function login() {
-            
-            #creates variable to hold a reference to the CodeIgniter $_POST variable
-            $post = $this->input->post(NULL,TRUE);
-            
-            #loads the model for sending database queries
-            $this->load->model('designshare_model');
-            
-            #uses conditional to check the value for the username input field in the $post array
-            if(empty($post['username'])) {
-                #if no username was submitted, the username variable is empty
-                $username = '';
-            }else{
-                #if a username was submitted, make sure the string is all lowercased and trim the whitespace
-                $username = strtolower(trim($post['username']));
-            }
-            
-             #uses conditional to check the value for the password input field in the $post array
-            if(empty($post['password'])) {
-                #if no password was submitted, the password variable is empty
-                $password = '';
-            }else{
-                #if a password was submitted, make sure the string is all lowercased and trim the whitespace
-                $password = strtolower(trim($post['password']));
-            }
-            
-             #uses conditional to check whether a user has attempted a log in by looking for a
-            #login_button key in the $post array
-            if($post['login_button']) {
-                #if the button was clicked:
-                
-                #uses conditional to make sure username and password were filled in
-                if(!empty($username) && !empty($password)) {
-                    
-                    #uses conditional to check for correct username/password format
-                    if(preg_match_all('/[^a-z]/',$username) || preg_match_all('/[^a-z]/',$password)) {
-                        #if username/password aren't all lowercase letters 'a-z'
-                        //run the view function to show the 'login_error' message
-                        $this->view('login_error');
-                    }else{
-                        #if username/password are in correct format
-                        
-                        #authenticate the user's login info
-                        $user = $this->designshare_model->getUserByPassword($username,$password);
-                        $profile_info = $this->designshare_model->getUserInfo($user);
-                        
-                        #loads a new session for the logged in user
-                        $this->load->library('session');
-                        #stores the user data for id, username, and password in the session cookie
-                        $this->session->set_userdata($user);
-                        #requests and stores the user data for visible user information in the session
-                        $this->session->set_userdata($profile_info);
-                        
-                        #changes the view
-                        $this->view('list');
-                        #removes the login button from the $post array
-                        unset($post['login_button']);
-                    }  
-                    
-                }
-                
-            }
-            
-        }//end Login Function
+        }//end View Function
         
         public function signup() {
             

@@ -10,7 +10,7 @@
         </div> <!-- End Text_Header Div -->
         <div data-role="content">
             <img id="main_logo" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
-            <form action="<?php echo base_url('index.php/design_share/login'); ?>" data-ajax="false" method="post">
+            <form action="<?php echo base_url('index.php/login/submit'); ?>" data-ajax="false" method="post">
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username" /><br />
                 <label for="password">Password:</label>

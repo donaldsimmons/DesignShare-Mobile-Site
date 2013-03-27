@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "design_share/view";
+$route['login/submit'] = "login/submit";
 
 
 /* End of file routes.php */
