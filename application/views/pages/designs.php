@@ -9,14 +9,14 @@
             <p class="text_header">View New Designs!</p>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="<?php echo base_url('index.php'); ?>">Edit Profile</a></li>
+                    <li><a href="<?php echo base_url('index.php'); ?>">Profile</a></li>
                     <li><a href="<?php echo base_url('index.php/help'); ?>">Help</a></li>
                     <li><a href="<?php echo base_url('index.php/logout/signout'); ?>">Log Out</a></li>
                 </ul>
             </div> <!-- End NavBar Div -->
             <div data-role="navbar">
                 <ul>
-                    <li data><a href="<?php echo base_url('index.php/design_share/view/list#user_list_page'); ?>" data-ajax="false">My Art</a></li>
+                    <li data><a href="<?php echo base_url('index.php/myList/'.$user); ?>" data-ajax="false">My Art</a></li>
                     <li><a href="<?php echo base_url('index.php/designs'); ?>">New Designs</a></li>
                 </ul>
             </div> <!-- End NavBar Div -->
@@ -27,7 +27,7 @@
                     #uses PHP to cycle through API results and dynamically create lists items
                     #for each result
                     
-                    foreach($shots_data as $shot) {
+                    foreach($shots['shots_data'] as $shot) {
                         #list items use information from API, accessed via the $shots['shots_data']
                         #array key that was passed with this page's view() function
                         echo '<li><a href="'.base_url('index.php/details/'.$shot['id'].'').'" data-ajax="false">

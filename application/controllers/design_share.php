@@ -104,8 +104,14 @@
             #stores the API content for displaying the list of artwork
             $shots = $this->designshare_model->getListFromAPI();
             
-            #displays the designs page and passes in the data for the list items
-            $this->view('designs',$shots);
+            #stores the userId for the current user
+            $user = $this->session->userdata('userId');
+            
+            #stores the designs info and the user info in an array
+            $designs_info = array('shots'=>$shots,'user'=>$user);
+            
+            #displays the designs page and passes in the data for the list items and user
+            $this->view('designs',$designs_info);
             
         }//end Designs Function
         
@@ -234,15 +240,55 @@
             
         }//end SendReport Function
         
+        public function addToUserList($design_id) {
+            
+            #loads url helper
+            $this->load->helper('url');
+            
+            #loads the model for sending database queries
+            $this->load->model('designshare_model');
+            
+            #stores the userId for the current User
+            #this will be used when selecting which favorite designs to show based on which user is
+            #currently logged in
+            $user = $this->session->userdata('userId');
+            
+            #calls the method that adds the design to the favorite_designs table in the db
+            $this->designshare_model->addDesignToUserList($design_id,$user);
+            
+            #redirects the user to the details page they were viewing
+            redirect(base_url('index.php/details/'.$design_id));
+            
+        }//end AddToUserList Function
+        
+        public function myList($user_id) {
+            
+            #loads the model for sending database queries
+            $this->load->model('designshare_model');
+            
+            #calls the getMyList method from the model to get any designs that might be saved for this
+            #user
+            $my_designs = $this->designshare_model->getMyList($user_id);
+            
+            #once the user's list is loaded, get the list items' info from the API
+            $shots = $this->designshare_model->getMyListItemsFromAPI($my_designs);
+            
+            #then view the users list
+            $this->view('user_list_page',$shots);
+        }//end MyList Function
+        
         private function sendReportEmail($report_info) {
             
+            #loads the 'email' library from the CI files
             $this->load->library('email');
             
+            #sets properties for the email template that will be sent
             $this->email->from($report_info['email'],$report_info['name']);
             $this->email->to('yert511@gmail.com');
             $this->email->subject('DesignShare Misuse Report');
             $this->email->message($report_info['report']);
             
+            #sends the new email to the '$this->email->to' address
             $this->email->send();
             
         }//end SendReportEmail Function

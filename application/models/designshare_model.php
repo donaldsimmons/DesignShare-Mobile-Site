@@ -225,6 +225,40 @@
             
         }//end GetListFromAPI Function
         
+        public function getMyListItemsFromAPI($my_designs) {
+            
+            #uses foreach loop to loop over each design in the $my_designs array
+            #(saved designs for each user)
+            foreach($my_designs as &$design) {
+                #for each design
+                
+                #store the API information in the $shot variable
+                $shot = file_get_contents('https://api.dribbble.com/shots/'.$design['design']);
+                
+                #decode the returned json object and cast it as an array
+                $data = (array) json_decode($shot);
+                
+                #sets values for list item information
+                $id = $design['design'];
+                $title = $data['title'];
+                $image_url = $data['image_url'];
+                $player_name = $data['player']->name;
+                
+                #creates an array that holds the info for the current design
+                $shot_single = array('id'=>$id,'title'=>$title,'image_url'=>$image_url,'player_name'=>$player_name);
+               
+                #adds the info array to another array that holds all of this user's favorite designs
+                $shots_set[] = $shot_single;
+            }
+            
+            #sets the complete designs array as the 'shot_data' value for the $shots array
+            $shots['shot_data'] = $shots_set;
+            
+            #returns the $shots results array
+            return $shots;
+            
+        }//end GetMyListItemsFromAPI function
+        
         public function getDetailsFromAPI($id) {
             
             #returns design-specific details from API using the id paramter passed in
@@ -303,6 +337,39 @@
             $statement = $this->db->query($sql, array($comment_id));
             
         }//end DeleteComment Function
+        
+        public function addDesignToUserList($design_id,$user) {
+            
+            #creates a query to add a favorite design to a user's list
+            $sql = "INSERT INTO favorite_designs
+                SET
+                    designId = ?,
+                    userId = ?
+            ";
+            
+            #queries the database to add the record
+            $statement = $this->db->query($sql,array($design_id,$user));
+            
+        }//end AddDesignToUserList Function
+        
+        public function getMyList($user_id) {
+            
+            #creates a query to select the designs a user has bookmarked in the app
+            $sql = "SELECT designId AS design, userId AS user
+                FROM favorite_designs
+                WHERE (userId = ?)
+            ";
+            
+            #queries the database to get list of user's designs
+            $statement = $this->db->query($sql,array($user_id));
+            
+            #stores the returned data from the db as an array
+            $results = $statement->result_array();
+            
+            #return the $results array
+            return $results;
+        
+        }//end GetMyList Function
     }
 
 ?>

@@ -46,7 +46,8 @@ $route['designs'] = "design_share/designs";
 $route['details/(:num)'] = "design_share/details/$1";
 $route['deleteComment/(:num)/(:num)'] = "design_share/deleteComment/$1/$2";
 $route['sendReport'] = "design_share/sendReport";
-
+$route['addToUserList/(:num)'] = "design_share/addToUserList/$1";
+$route['myList/(:num)'] = "design_share/myList/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

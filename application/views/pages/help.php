@@ -9,7 +9,7 @@
             <p class="text_header">Help and Support</p>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="<?php echo base_url('index.php'); ?>">Edit Profile</a></li>
+                    <li><a href="<?php echo base_url('index.php'); ?>">Profile</a></li>
                     <li><a href="<?php echo base_url('index.php/design_share/designs'); ?>" data-ajax="false">Designs</a></li>
                     <li><a href="#">Log Out</a></li>
                 </ul>

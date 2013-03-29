@@ -9,7 +9,7 @@
             <p class="text_header">View Design Details!</p>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="<?php echo base_url('index.php'); ?>">Edit Profile</a></li>
+                    <li><a href="<?php echo base_url('index.php'); ?>">Profile</a></li>
                     <li><a href="<?php echo base_url('index.php/help'); ?>" data-ajax="false">Help</a></li>
                     <li><a href="<?php echo base_url('index.php/design_share/designs'); ?>">Designs</a></li>
                     <li><a href="<?php echo base_url('index.php/logout/signout'); ?>">Log Out</a></li>
@@ -45,7 +45,8 @@
                         <th>Designer Website:</th>
                         <td><a href="<?php echo $details['player_url']; ?>"><?php echo $details['player_url']; ?></a></td>
                     </tr>
-                </table>   
+                </table>
+                <p><a id="add_design_link" href="<?php echo base_url('index.php/addToUserList/'.$design_id); ?>" data-ajax="false">Add Design To Your List?</a></p>
             </div> <!-- End Details_Collapsible Div -->
             <form id="comment_form" action="<?php echo base_url('index.php/design_share/postComment/'.$design_id); ?>" method="post" data-ajax="false">
                 <input type="text" name="comment_input" id="comment_input" />

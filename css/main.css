@@ -363,6 +363,14 @@ and (max-width : 1284px) {
     font-size: .8em;
 }
 
+#add_design_link {
+    font-size: .8em;
+}
+
+#my_list_placeholder {
+    font-size: .8em;
+}
+
 .footer p {
     display: inline;
 }
