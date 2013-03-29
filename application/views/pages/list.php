@@ -73,7 +73,7 @@
     <div id="container">
         <div data-role="header">
             <img class="header_logo" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
-            <p class="text_header">Welcome Back!</p>
+            <p class="text_header">View Your Designs!</p>
             <div data-role="navbar">
                 <ul>
                     <li><a href="#user_profile_page">Edit Profile</a></li>
