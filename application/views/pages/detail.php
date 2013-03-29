@@ -61,16 +61,36 @@
                     #if there are comments for this design in the $comments array
                     
                     #use a foreach loop to creae a list item for the comment list
-                    foreach($comments as $comment) {    
-                        echo '<ul id="comment_list" data-role="listview" data-theme="e">
+                    foreach($comments as $comment) {
+                        
+                        #uses conditional to check if the current user has submitted the selected comment
+                        if($comment['user'] === $user) {
+                            #if the current user's id ($user (from session variable)) matches
+                            #the id of the user who submitted the comment
+                            
+                            #echo the comment as a linked list item to allow comment edits
+                            #passes into "href" the commentId to be edited and the designId that the comment belongs to
+                            echo '<ul id="comment_list" data-role="listview" data-theme="e">
                                 <li>
-                                    <a href="#edit_comment_page" data-theme="e" data-rel="dialog" data-transition="pop">
+                                    <a href="'.base_url('index.php/deleteComment/'.$comment['commentId'].'/'.$design_id).'" data-theme="e" data-ajax="false">
                                         <p>'.$comment['username'].'</p>
                                         <p>'.$comment['comment'].'</p>
                                         <p>'.$comment['timestamp'].'</p>
                                     </a>
                                 </li>
-                        </ul>';
+                            </ul>';
+                        }else{
+                            #if the current user's id and the comment's user id don't match
+                            
+                            #echo the comment as a plain list item to prevent edits by other users
+                            echo '<ul id="comment_list" data-role="listview" data-theme="e">
+                                <li>
+                                    <p>'.$comment['username'].'</p>
+                                    <p>'.$comment['comment'].'</p>
+                                    <p>'.$comment['timestamp'].'</p>
+                                </li>
+                            </ul>';
+                        }
                     }
                 }
             ?>
@@ -81,24 +101,3 @@
         </div><!-- End Footer Div -->    
     </div> <!-- End Container Div -->
 </div> <!-- End Details_Page  Div -->
-
-
-<!-- Begins Edit_Comment_Page jQuery Mobile Page -->
-
-<!-- A dialog that allows users to delete comments they've posted -->
-
-<div id="edit_comment_page" data-role="page">
-    <div id="container">
-        <div data-role="header" data-theme="a">
-            <img class="header_logo" id="delete_header" src="<?php echo base_url('assets/images/designshare_logo.png'); ?>" alt="DesignShare Logo" />
-             <p class="text_header">Delete Comment?</p>
-        </div> <!-- End Header Div -->
-        <div data-role="content">
-            <input type="button" data-role="button" data-theme="b" value="Delete" />
-        </div> <!-- End Content Div -->
-        <div class="footer" data-role="footer">
-            <p>&copy; 2013 DesignShare | All designs © their respective owners.</p>
-            <p>Donald Simmons</p>
-        </div><!-- End Footer Div -->    
-    </div> <!-- End Container Div -->
-</div> <!-- End Edit_Content_Page  Div -->

@@ -262,6 +262,7 @@
                 INNER JOIN users
                 ON comments.userId = users.userId
                 WHERE (designId = ?)
+                ORDER BY submitTime DESC
             ";
             
             #queries the database using the sql statement and the design_id gotten from the API for
@@ -275,8 +276,10 @@
         
         public function postComment($comment_info) {
             
+            #creates array of values to insert into database query
             $query_values = array($comment_info['input'],$comment_info['user'],$comment_info['design']);
             
+            #creates a request to add a comment to the database using user-specific info
             $sql = "INSERT INTO comments
                 SET
                     commentText = ?,
@@ -284,9 +287,22 @@
                     designId = ?
             ";
             
+            #queries the database to insert a comment into the comments table
             $statement = $this->db->query($sql,$query_values);
             
         }//end postComment Function
+        
+        public function deleteComment($comment_id) {
+            
+            #creates a request to delete a comment with the matching comment_id value
+            $sql = "DELETE FROM comments
+                WHERE (commentId = ?)
+            ";
+            
+            #queries the database to delete comment
+            $statement = $this->db->query($sql, array($comment_id));
+            
+        }//end DeleteComment Function
     }
 
 ?>
