@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "design_share/view";
+$route['help'] = "design_share/view/help";
 $route['login/submit'] = "login/submit";
 $route['logout'] = "logout/signout";
 $route['designs'] = "design_share/designs";

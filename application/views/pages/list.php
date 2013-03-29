@@ -15,7 +15,7 @@
             <p class="text_header">Welcome Back!</p>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#user_list_page" data-ajax="false">My Art</a></li>
+                    <li><a href="<?php echo base_url('index.php/help'); ?>" data-ajax="false">Help</a></li>
                     <li><a href="<?php echo base_url('index.php/designs'); ?>" data-ajax="false">Designs</a></li>
                     <li><a href="<?php echo base_url('index.php/logout'); ?>" data-ajax="false">Log Out</a></li>
                 </ul>
@@ -77,8 +77,14 @@
             <div data-role="navbar">
                 <ul>
                     <li><a href="#user_profile_page">Edit Profile</a></li>
-                    <li><a href="<?php echo base_url('index.php/design_share/designs'); ?>" data-ajax="false">Designs</a></li>
+                    <li><a href="<?php echo base_url('index.php/help'); ?>" data-ajax="false">Help</a></li>
                     <li><a href="#">Log Out</a></li>
+                </ul>
+            </div> <!-- End NavBar Div -->
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="<?php echo base_url('index.php/design_share/view/list#user_list_page'); ?>" data-ajax="false">My Art</a></li>
+                    <li><a href="<?php echo base_url('index.php/designs'); ?>">New Designs</a></li>
                 </ul>
             </div> <!-- End NavBar Div -->
         </div> <!-- End Header Div -->

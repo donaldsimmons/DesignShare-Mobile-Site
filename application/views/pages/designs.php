@@ -10,8 +10,14 @@
             <div data-role="navbar">
                 <ul>
                     <li><a href="<?php echo base_url('index.php'); ?>">Edit Profile</a></li>
-                    <li><a href="<?php echo base_url('index.php/design_share/view/list#user_list_page'); ?>" data-ajax="false">My Art</a></li>
+                    <li><a href="<?php echo base_url('index.php/help'); ?>">Help</a></li>
                     <li><a href="<?php echo base_url('index.php/logout/signout'); ?>">Log Out</a></li>
+                </ul>
+            </div> <!-- End NavBar Div -->
+            <div data-role="navbar">
+                <ul>
+                    <li data><a href="<?php echo base_url('index.php/design_share/view/list#user_list_page'); ?>" data-ajax="false">My Art</a></li>
+                    <li><a href="<?php echo base_url('index.php/designs'); ?>">New Designs</a></li>
                 </ul>
             </div> <!-- End NavBar Div -->
         </div> <!-- End Header Div -->

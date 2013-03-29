@@ -322,11 +322,39 @@ and (max-width : 1284px) {
 #comment_form {
     margin-top: 35px;
 }
-    
+
+#support_email {
+    font-weight: bold;
+}
+
+#copyright_email_address {
+    font-weight: bold;
+}
+
+#faq_content li {
+    list-style: none;
+}
+
+.terms_list li{
+    list-style: disc;
+}
+ 
+#terms_and_conditions {
+    font-size: .7em;   
+}
 .home_text_links {
     font-size: .9em;
     margin-top: 30px;
     margin-bottom: 0px;
+}
+
+.question {
+    font-weight: bold;
+    font-size: .9em;
+}
+
+.answer {
+    font-size: .8em;
 }
 
 .footer p {

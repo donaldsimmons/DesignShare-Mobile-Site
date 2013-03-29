@@ -10,7 +10,7 @@
             <div data-role="navbar">
                 <ul>
                     <li><a href="<?php echo base_url('index.php'); ?>">Edit Profile</a></li>
-                    <li><a href="<?php echo base_url('index.php#user_list_page'); ?>" data-ajax="false">My Art</a></li>
+                    <li><a href="" data-ajax="false">Help</a></li>
                     <li><a href="<?php echo base_url('index.php/design_share/designs'); ?>">Designs</a></li>
                     <li><a href="<?php echo base_url('index.php/logout/signout'); ?>">Log Out</a></li>
                 </ul>
