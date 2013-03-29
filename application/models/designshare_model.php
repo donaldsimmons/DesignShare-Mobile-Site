@@ -36,8 +36,7 @@
             #sets variables to values from signup form's $post array (shared by function parameter)
             $name = $user_info['full_name'];
             $username = $user_info['new_username'];
-            #to create new password, concatenates user-created password with $result salt and encodes
-            #with MD5()
+            #to create new password, concatenates user-created password with $result salt and encodes with MD5()
             $password = MD5($salt.$user_info['new_password']);
             $email = $user_info['new_email'];
             
@@ -70,8 +69,7 @@
                 WHERE (userId = ?)
             ";
             
-            #queries the database for the desired user info, passing in the userId string cast as
-            #an integer
+            #queries the database for the desired user info, passing in the userId string cast as an integer
             $statement = $this->db->query($sql,array((int)$user_id));
             
             #returns the array of results
@@ -135,20 +133,18 @@
                 }
             }
             
-            #reset the array counters, ensuring correct array counting after manipulation in
-            #foreach loop
+            #reset the array counters, ensuring correct array counting after manipulation in foreach loop
             reset($query_values);
             reset($query_strings);
             
-            #use implode() to combine the $query_strings array, separating them with a comma and space
-            #makes a string of the required identifiers for the query (userName = ?, userPass = ?, userSalt = ?)
+            /* use implode() to combine the $query_strings array, separating them with a comma and space
+            makes a string of the required identifiers for the query (userName = ?, userPass = ?, userSalt = ?) */
             $query_identifiers = implode(', ',$query_strings);
             
             #creates the complete MySql query by concatenating the three pieces of the query
             $sql = $query_update_string.$query_identifiers.$query_where_string;
             
-            #adds the desired userId to the query_values to represent the selected user in the
-            #$query_where_string (WHERE userId = ?)
+            #adds the desired userId to the query_values to represent the selected user in the $query_where_string (WHERE userId = ?)
             $query_values[] = 6;
             
             #queries the database and updates the submitted values
@@ -180,8 +176,8 @@
             
             for($i=0;$i<8;$i++) {
                 
-                #loops over string 8 times and selects a random character index 0-61 each time
-                #then adds the selected character to the end of the $result string
+                /* loops over string 8 times and selects a random character index 0-61 each time
+                then adds the selected character to the end of the $result string */
                 $result .= $characters[mt_rand(0,61)];
                 
             }
@@ -211,13 +207,11 @@
                 #creates an array to store the values for each result
                 $shot_single = array('id'=>$id,'title'=>$title,'image_url'=>$image_url,'player_name'=>$player_name);
                 
-                #adds the results array to the main array, which will hold all of the necessary 
-                #result information
+                #adds the results array to the main array, which will hold all of the necessary result information
                 $shots_set[] = $shot_single;
             }
             
-            #creates an array that will be passed to the details list html page
-            #stores the collective results
+            #creates an array that will be passed to the details list html page stores the collective results
             $shots['shots_data'] = $shots_set;
             
             #returns the results to the controller
@@ -227,8 +221,7 @@
         
         public function getMyListItemsFromAPI($my_designs) {
             
-            #uses foreach loop to loop over each design in the $my_designs array
-            #(saved designs for each user)
+            #uses foreach loop to loop over each design in the $my_designs array (saved designs for each user)
             foreach($my_designs as &$design) {
                 #for each design
                 
@@ -273,9 +266,9 @@
             #concatenates the substrings to get 'MM/DD/YYYY' format
             $formatted_date = substr($date[0],5,5).'/'.substr($date[0],0,4);
             
-            #stores the necessary data in an array, separated by keys
-            #data['player'] is an object, so any values stored there need to be accessed with
-            #object notation
+            /* stores the necessary data in an array, separated by keys
+            data['player'] is an object, so any values stored there need to be accessed with
+            object notation */
             $details_array = array('title'=>$data['title'],'created_at'=>$formatted_date,
                                    'image_url'=>$data['image_url'],'player_name'=>$data['player']->name,
                                    'player_twitter'=>$data['player']->twitter_screen_name,
@@ -299,8 +292,8 @@
                 ORDER BY submitTime DESC
             ";
             
-            #queries the database using the sql statement and the design_id gotten from the API for
-            #this specific design
+            /*queries the database using the sql statement and the design_id gotten from the API for
+            this specific design */
             $statement = $this->db->query($sql,array($design_id));
             
             #returns an array of comments for the selected designs
