@@ -1,4 +1,3 @@
-
 <div id="edit_comment_page" data-role="page">
     <div id="container">
         <div data-role="header" data-theme="a">

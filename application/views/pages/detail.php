@@ -10,7 +10,7 @@
             <div data-role="navbar">
                 <ul>
                     <li><a href="<?php echo base_url('index.php'); ?>">Edit Profile</a></li>
-                    <li><a href="" data-ajax="false">Help</a></li>
+                    <li><a href="<?php echo base_url('index.php/help'); ?>" data-ajax="false">Help</a></li>
                     <li><a href="<?php echo base_url('index.php/design_share/designs'); ?>">Designs</a></li>
                     <li><a href="<?php echo base_url('index.php/logout/signout'); ?>">Log Out</a></li>
                 </ul>
@@ -51,6 +51,7 @@
                 <input type="text" name="comment_input" id="comment_input" />
                 <input type="submit" data-theme="c" value="Submit Comment" id="comment_submit" />
             </form>
+            <a id="report_link" href="<?php echo base_url('index.php/sendReport'); ?>" data-ajax="false">Report Misuse or Complaint >></a>
             <h4>Comments:</h4>
             <?php
                 #uses conditional to check if there are comments for this design in the database

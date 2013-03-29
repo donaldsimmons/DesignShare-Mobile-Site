@@ -348,6 +348,12 @@ and (max-width : 1284px) {
     margin-bottom: 0px;
 }
 
+#report_link {
+    display: block;
+    font-size: .8em;
+    margin-top: 20px;
+}
+
 .question {
     font-weight: bold;
     font-size: .9em;

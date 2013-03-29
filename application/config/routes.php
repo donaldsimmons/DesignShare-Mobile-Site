@@ -45,6 +45,7 @@ $route['logout'] = "logout/signout";
 $route['designs'] = "design_share/designs";
 $route['details/(:num)'] = "design_share/details/$1";
 $route['deleteComment/(:num)/(:num)'] = "design_share/deleteComment/$1/$2";
+$route['sendReport'] = "design_share/sendReport";
 
 
 /* End of file routes.php */

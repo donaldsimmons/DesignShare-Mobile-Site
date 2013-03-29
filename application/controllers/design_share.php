@@ -197,6 +197,55 @@
             }
             
         }//end DeleteComment Function
+        
+        public function sendReport() {
+            
+            #stores the post array values from the report form
+            $post = $this->input->post(NULL,TRUE);
+            
+            #uses conditional to check if a report has been submitted
+            if(!empty($post['submit_report_button'])) {
+               #if the 'submit_report_button' has been clicked and is present in the post array
+              
+                #sets variables to values from the report form
+                $username = $post['report_username'];
+                $name = $post['report_name'];
+                $report = $post['report_comment'];
+                
+                #stores session information for use in the function that sends the report
+                $email = $this->session->userdata('email');
+                $user_id = $this->session->userdata('userId');
+                
+                #stores relevant information in an array
+                $report_info = array('username'=>$username,'name'=>$name,'report'=>$report,'email'=>$email,'userId'=>$user_id);
+                
+                #passes array into the private functinon that will send an email to site admin
+                $this->sendReportEmail($report_info);
+                
+                #shows the 'report_sent' notice page
+                $this->view('report_sent'); 
+                
+            }else{
+                #if the 'submit_report_button' hasn't been clicked and isn't present in the post array
+                
+                #show the report form
+                $this->view('report_form');
+            }
+            
+        }//end SendReport Function
+        
+        private function sendReportEmail($report_info) {
+            
+            $this->load->library('email');
+            
+            $this->email->from($report_info['email'],$report_info['name']);
+            $this->email->to('yert511@gmail.com');
+            $this->email->subject('DesignShare Misuse Report');
+            $this->email->message($report_info['report']);
+            
+            $this->email->send();
+            
+        }//end SendReportEmail Function
     }
 
 ?>
