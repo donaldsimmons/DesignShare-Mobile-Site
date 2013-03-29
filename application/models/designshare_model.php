@@ -352,6 +352,19 @@
             
         }//end AddDesignToUserList Function
         
+        public function removeDesignFromUserList($design_id,$user) {
+            
+            #creates a query statement to delete the chosen design_id from the current user's list
+            $sql = "DELETE FROM favorite_designs
+                WHERE (designId = ?)
+                    AND (userId = ?)
+            ";
+            
+            #queries the database to remove the design for that user
+            $statement = $this->db->query($sql,array($design_id,$user));
+            
+        }//end RemoveDesignFromUserList Function
+        
         public function getMyList($user_id) {
             
             #creates a query to select the designs a user has bookmarked in the app
@@ -370,6 +383,39 @@
             return $results;
         
         }//end GetMyList Function
+        
+        public function checkMyList($design_id,$user_id) {
+            
+            #creates query statement to check for current design in user's favorites list
+            $sql = "SELECT designId AS design, userId AS user
+                FROM favorite_designs
+                WHERE (designId = ?)
+                    AND (userId = ?)
+            ";
+            
+            #queries database to check for current design in user's list
+            $statement = $this->db->query($sql,array($design_id,$user_id));
+            
+            #stores the result_array from the statement object
+            $result = $statement->result_array();
+            
+            #uses conditional to set favorite check variable
+            if(count($result) == 0) {
+                #if the design isn't present on the user's list
+                
+                #$favorite is equal to false
+                $favorite = false;
+            }else{
+                #if the design is present on the user's list
+                
+                #$favorite is equal to false
+                $favorite = true;
+            }
+            
+            #returns the 'checked' indicator
+            return $favorite;
+            
+        }//end CheckList Function
     }
 
 ?>

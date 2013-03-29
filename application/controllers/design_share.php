@@ -130,13 +130,16 @@
             #loads any comments for this design that might be stored in the database
             $comments = $this->designshare_model->loadComments($design_id);
             
+            #calls checkMyList method from model to check if current design is already on list
+            #will be used to determine which link (add/remove design) is placed in details page
+            $on_list = $this->designshare_model->checkMyList($design_id,$user_id);
+                        
             #creates a new array for holding all the detail page's content
-            $detail_page_content = array('user'=>$user_id,'details'=>$details,'comments'=>$comments,'design_id'=>$design_id);
+            $detail_page_content = array('user'=>$user_id,'details'=>$details,'comments'=>$comments,'design_id'=>$design_id,'on_list'=>$on_list);
             
             #calls the view function and passes the $detail_page_content array that holds API values
             #and the comments for the design
             $this->view('detail',$detail_page_content);
-            
             
         }//end Details Function
         
@@ -248,7 +251,7 @@
             #loads the model for sending database queries
             $this->load->model('designshare_model');
             
-            #stores the userId for the current User
+            #stores the userId for the current user
             #this will be used when selecting which favorite designs to show based on which user is
             #currently logged in
             $user = $this->session->userdata('userId');
@@ -260,6 +263,27 @@
             redirect(base_url('index.php/details/'.$design_id));
             
         }//end AddToUserList Function
+        
+        public function removeFromUserList($design_id) {
+            
+            #loads url helper
+            $this->load->helper('url');
+            
+            #loads the model for sending database queries
+            $this->load->model('designshare_model');
+            
+            #stores the userId for the current user
+            #this will be used to identify which user's list the design_id should be removed from
+            $user = $this->session->userdata('userId');
+            
+            #calls the removeDesignFromUserList method of the model to remove the design from the
+            #list in the database
+            $this->designshare_model->removeDesignFromUserList($design_id,$user);
+            
+            #redirects the user to the details page they were viewing
+            redirect(base_url('index.php/details/'.$design_id));
+            
+        }//end RemoveFromUserList Function
         
         public function myList($user_id) {
             
