@@ -256,9 +256,11 @@
         public function loadComments($design_id) {
             
             #creates a SELECT statement to select comment info from the database
-            $sql = "SELECT commentId AS commentId, commentText AS comment, userId AS user,
-                submitTime AS timestamp  
+            $sql = "SELECT comments.commentId AS commentId, comments.commentText AS comment, comments.userId AS user,
+                comments.submitTime AS timestamp, users.userName as username
                 FROM comments
+                INNER JOIN users
+                ON comments.userId = users.userId
                 WHERE (designId = ?)
             ";
             
@@ -270,6 +272,21 @@
             return $statement->result_array();
             
         }//end LoadComments Function
+        
+        public function postComment($comment_info) {
+            
+            $query_values = array($comment_info['input'],$comment_info['user'],$comment_info['design']);
+            
+            $sql = "INSERT INTO comments
+                SET
+                    commentText = ?,
+                    userId = ?,
+                    designId = ?
+            ";
+            
+            $statement = $this->db->query($sql,$query_values);
+            
+        }//end postComment Function
     }
 
 ?>

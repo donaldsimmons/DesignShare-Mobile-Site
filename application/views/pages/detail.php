@@ -47,7 +47,7 @@
                     </tr>
                 </table>   
             </div> <!-- End Details_Collapsible Div -->
-            <form id="comment_form" action="?" method="post">
+            <form id="comment_form" action="<?php echo base_url('index.php/design_share/postComment/'.$design_id); ?>" method="post" data-ajax="false">
                 <input type="text" name="comment_input" id="comment_input" />
                 <input type="submit" data-theme="c" value="Submit Comment" id="comment_submit" />
             </form>
@@ -61,22 +61,22 @@
                     #if there are comments for this design in the $comments array
                     
                     #use a foreach loop to creae a list item for the comment list
-                    foreach($comments as $comment) {
+                    foreach($comments as $comment) {    
                         echo '<ul id="comment_list" data-role="listview" data-theme="e">
                                 <li>
                                     <a href="#edit_comment_page" data-theme="e" data-rel="dialog" data-transition="pop">
-                                        Sample Comment
+                                        <p>'.$comment['username'].'</p>
+                                        <p>'.$comment['comment'].'</p>
+                                        <p>'.$comment['timestamp'].'</p>
                                     </a>
                                 </li>
-                                <li><input type="button" data-role="button" data-theme="e" value="See More Comments" data-icon="arrow-d" /></li>
                         </ul>';
                     }
                 }
             ?>
         </div> <!-- End Content Div -->
         <div class="footer" data-role="footer">
-            <p>DesignShare</p>
-            <p>MDD-1303</p>
+            <p>&copy; 2013 DesignShare | All designs © their respective owners.</p>
             <p>Donald Simmons</p>
         </div><!-- End Footer Div -->    
     </div> <!-- End Container Div -->
@@ -97,8 +97,7 @@
             <input type="button" data-role="button" data-theme="b" value="Delete" />
         </div> <!-- End Content Div -->
         <div class="footer" data-role="footer">
-            <p>DesignShare</p>
-            <p>MDD-1303</p>
+            <p>&copy; 2013 DesignShare | All designs © their respective owners.</p>
             <p>Donald Simmons</p>
         </div><!-- End Footer Div -->    
     </div> <!-- End Container Div -->

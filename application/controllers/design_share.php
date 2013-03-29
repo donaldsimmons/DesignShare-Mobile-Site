@@ -121,13 +121,35 @@
             $comments = $this->designshare_model->loadComments($design_id);
             
             #creates a new array for holding all the detail page's content
-            $detail_page_content = array('details'=>$details,'comments'=>$comments);
+            $detail_page_content = array('details'=>$details,'comments'=>$comments,'design_id'=>$design_id);
             
             #calls the view function and passes the $detail_page_content array that holds API values
             #and the comments for the design
             $this->view('detail',$detail_page_content);
             
         }//end Details Function
+        
+        public function postComment($design_id) {
+            
+            $this->load->helper('url');
+            $this->load->model('designshare_model');
+            
+            $post = $this->input->post(NULL,TRUE);
+            
+            $input = $post['comment_input'];
+            $user_id = $this->session->userdata('userId');
+            
+            
+            
+            if(!empty($input)) {
+                $comment_info = array('input'=>$input,'user'=>$user_id,'design'=>$design_id);
+                
+                $this->designshare_model->postComment($comment_info);
+            }
+            
+            redirect(base_url('index.php/details/'.$design_id));
+            
+        }//end PostComment Function
     }
 
 ?>

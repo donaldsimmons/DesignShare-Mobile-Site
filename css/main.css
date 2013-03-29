@@ -26,9 +26,8 @@ and (min-width : 200px) {
     }
     
     .footer p {
-        width: 60px;
         font-size: .6em;
-        margin-left: 5%;
+        margin-left: 3%;
     }
     
         #current_info th {
@@ -78,9 +77,7 @@ and (max-width : 349px) {
     }
     
     .footer p {
-        width: 75px;
-        font-size: .7em;
-        margin-left: 6%;
+        font-size: .6em;
     }
     
         #current_info th {
@@ -130,9 +127,8 @@ and (max-width : 520px) {
     }
     
     .footer p {
-        width: 100px;
-        font-size: .85em;
-        margin-left: 8%;
+        font-size: .6em;
+        margin-left: 3%;
     }
     
     #current_info th {
@@ -181,9 +177,8 @@ and (max-width : 770px) {
     }
     
     .footer p {
-        width: 200px;
-        font-size: .9em;
-        margin-left: 13%;
+        font-size: .65;
+        margin-left: 7%;
     }
     
         #current_info th {
@@ -231,9 +226,8 @@ and (max-width : 1096px) {
     }
     
     .footer p {
-        width: 300px;
-        font-size: 1em;
-        margin-left: 14%;
+        font-size: .7em;
+        margin-left: 10%;
     }
     
     #current_info th {
@@ -280,9 +274,8 @@ and (max-width : 1284px) {
     }
     
     .footer p {
-        width: 400px;
-        font-size: 1.1em;
-        margin-left: 16%;
+        font-size: .8em;
+        margin-left: 130px;
     }
     
     #current_info th {

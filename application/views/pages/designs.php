@@ -34,8 +34,7 @@
             </ul>
         </div> <!-- End Content Div -->
         <div class="footer" data-role="footer">
-            <p>DesignShare</p>
-            <p>MDD-1303</p>
+            <p>&copy; 2013 DesignShare | All designs © their respective owners.</p>
             <p>Donald Simmons</p>
         </div><!-- End Footer Div -->    
     </div> <!-- End Container Div -->
