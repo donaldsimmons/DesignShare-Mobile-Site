@@ -28,6 +28,22 @@
             
         }//end GetUserByPassword Function
         
+        public function getUserById($user_id) {
+            
+            #creates a query to get user info based on id number
+            $sql = "SELECT userId AS userId,userName AS username,userPass AS password
+            FROM users
+            WHERE (userId = ?)
+            ";
+            
+            #queries database
+            $statement = $this->db->query($sql,array($user_id));
+            
+            #returns an array of user info 
+            return $statement->row_array();
+            
+        }//end GetUserById Function
+        
         public function registerUser($user_info) {
             
             #creates a new salt to concatenate with user-created password (for encryption)
@@ -77,7 +93,7 @@
             
         }//end GetUserInfo Function
         
-        public function updateUserInfo($update_info) {
+        public function updateUserInfo($update_info,$user_id) {
             
             #creates the prefix and suffix for all possible update requests
             $query_update_string = 'UPDATE users SET ';
@@ -145,7 +161,7 @@
             $sql = $query_update_string.$query_identifiers.$query_where_string;
             
             #adds the desired userId to the query_values to represent the selected user in the $query_where_string (WHERE userId = ?)
-            $query_values[] = 6;
+            $query_values[] = $user_id;
             
             #queries the database and updates the submitted values
             $statement = $this->db->query($sql,$query_values);

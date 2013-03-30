@@ -62,8 +62,7 @@
             #removes the signup button from the post array
             unset($post['signup_button']);
             
-            #shows the list view
-            $this->view('list');
+            redirect(base_url('index.php'));
             
         }//end SignUp Function
         
@@ -72,14 +71,20 @@
             #creates variable to hold a reference to the CodeIgniter $_POST variable
             $post = $this->input->post(NULL,TRUE);
             
+            #stores the current user's id
+            $user_id = $this->session->userdata('userId');
+            
             #loads the model for sending database queries
             $this->load->model('designshare_model');
             
             #calls the updateUserInfo method from the model
-            $this->designshare_model->updateUserInfo($post);
+            $this->designshare_model->updateUserInfo($post,$user_id);
             
-            #shows the list view
-            $this->view('list');
+            #calls the updateSessionData method from the model to update the session info with new user data
+            $this->updateSessionData($user_id);
+            
+            #redirects to the index page
+            redirect(base_url('index.php'));
             
         }//end UpdateUser Function
         
@@ -307,6 +312,23 @@
             $this->email->send();
             
         }//end SendReportEmail Function
+        
+        private function updateSessionData($user_id) {
+            
+            #loads the model
+            $this->load->model('designshare_model');
+            
+            #gets the new user info based on the user's id (which doesn't ever change)
+            $user = $this->designshare_model->getUserById($user_id);
+            
+            #gets the profile information from the database
+            $profile_info = $this->designshare_model->getUserInfo($user);
+            
+            #updates the session with the new user info
+            $this->session->set_userdata($user);
+            $this->session->set_userdata($profile_info);
+            
+        }//end UpdateSessionData Function
     }
 
 ?>
