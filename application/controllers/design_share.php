@@ -96,8 +96,14 @@
             #loads the model for sending database queries
             $this->load->model('designshare_model');
             
+            #stores the userId of the current user
+            $user = $this->session->userdata('userId');
+            
             #deletes user
-            $this->designshare_model->deleteUser();
+            $this->designshare_model->deleteUser($user);
+            
+            #destroys the current session
+            $this->session->sess_destroy();
             
             #redirects page back to home page
             header('Location: '.base_url('index.php'));

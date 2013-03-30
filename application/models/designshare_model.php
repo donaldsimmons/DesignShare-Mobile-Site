@@ -168,14 +168,15 @@
             
         }//end UpdateUserInfo Function
         
-        public function deleteUser() {
+        public function deleteUser($user_id) {
             
             #creates an SQL query to delete the selected user
             $sql = "DELETE FROM users
                 WHERE (userId = ?);
             ";
             
-            $id = 6;
+            #stores the current user's userId
+            $id = $user_id;
             
             #queries the database to remove the current user's record
             $statement = $this->db->query($sql,array($id));
