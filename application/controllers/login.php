@@ -53,8 +53,9 @@
                     #uses conditional to check for correct username/password format
                     if(preg_match_all('/[^a-z]/',$username) || preg_match_all('/[^a-z]/',$password)) {
                         #if username/password aren't all lowercase letters 'a-z'
-                        //run the view function to show the 'login_error' message
-                        $this->design_share->view('login_error');
+                        
+                        #redirect to the error page
+                        redirect(base_url('index.php#login_error_page'));
                     }else{
                         #if username/password are in correct format
                         
@@ -78,6 +79,11 @@
                         unset($post['login_button']);
                     }  
                     
+                }else{
+                    #if the input fields are empty
+                    
+                    #redirect to the error screen
+                    redirect(base_url('index.php#login_error_page'));
                 }
                 
             }

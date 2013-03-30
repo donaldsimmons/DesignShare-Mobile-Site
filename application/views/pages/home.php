@@ -49,7 +49,6 @@
                     <input type="password" name="new_password" id="new_password" required/><br />
                 <label for="new_email">Email:</label>
                     <input type="text" name="new_email" id="new_email" required/><br />
-                <label><input id="newsletter_check" type="checkbox" name="newsletter_check" data-theme="a" /> Sign up for newsletter?</label>
                 <input type="submit" name="signup_button" value="Sign Up" />
             </form>
             <p id="back_link" class="home_text_links"><a href="#login_page"><< Back to Login</a></p>
