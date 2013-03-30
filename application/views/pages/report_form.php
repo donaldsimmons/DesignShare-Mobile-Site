@@ -12,7 +12,7 @@
                     <li><a href="<?php echo base_url('index.php'); ?>">Edit Profile</a></li>
                     <li><a href="<?php echo base_url('index.php/help'); ?>" data-ajax="false">Help</a></li>
                     <li><a href="<?php echo base_url('index.php/designs'); ?>" data-ajax="false">Designs</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li><a href="<?php echo base_url('index.php/logout'); ?>">Log Out</a></li>
                 </ul>
             </div> <!-- End NavBar Div -->
         </div> <!-- End Header Div -->
