@@ -34,7 +34,7 @@
             </form>
         </div> <!-- End Content Div -->
         <div class="footer" data-role="footer">
-            <p>&copy; 2013 DesignShare | All designs © their respective owners.</p>
+            <p>&copy; 2013 DesignShare | All designs &copy; their respective owners.</p>
             <p>Donald Simmons</p>
         </div><!-- End Footer Div -->    
     </div> <!-- End Container Div -->

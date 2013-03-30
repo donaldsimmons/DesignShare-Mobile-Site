@@ -54,7 +54,7 @@
             <p id="back_link" class="home_text_links"><a href="#login_page"><< Back to Login</a></p>
         </div>
         <div class="footer" data-role="footer">
-            <p>&copy; 2013 DesignShare | All designs © their respective owners.</p>
+            <p>&copy; 2013 DesignShare | All designs &copy; their respective owners.</p>
             <p>Donald Simmons</p>
         </div> <!-- End Footer Div --> 
     </div>
@@ -76,7 +76,7 @@
             <p id="back_link" class="home_text_links"><a href="#login_page"><< Back to Login</a></p>
         </div> <!-- End Content Div -->
         <div class="footer" data-role="footer">
-            <p>&copy; 2013 DesignShare | All designs © their respective owners.</p>
+            <p>&copy; 2013 DesignShare | All designs &copy; their respective owners.</p>
             <p>Donald Simmons</p>
         </div><!-- End Footer Div -->    
     </div> <!-- End Container Div -->
