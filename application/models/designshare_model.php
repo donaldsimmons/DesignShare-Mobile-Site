@@ -205,7 +205,7 @@
         public function getListFromAPI() {
             
             #loads the content from the Dribbble API
-            $designs = file_get_contents('https://api.dribbble.com/shots/popular');
+            $designs = file_get_contents('http://api.dribbble.com/shots/popular');
             #decodes the returned JSON results and then casts it as an array for manipulation
             $data = (array)json_decode($designs);
             
@@ -243,7 +243,7 @@
                 #for each design
                 
                 #store the API information in the $shot variable
-                $shot = file_get_contents('https://api.dribbble.com/shots/'.$design['design']);
+                $shot = file_get_contents('http://api.dribbble.com/shots/'.$design['design']);
                 
                 #decode the returned json object and cast it as an array
                 $data = (array) json_decode($shot);
@@ -272,7 +272,7 @@
         public function getDetailsFromAPI($id) {
             
             #returns design-specific details from API using the id paramter passed in
-            $details = file_get_contents('https://api.dribbble.com/shots/'.$id);
+            $details = file_get_contents('http://api.dribbble.com/shots/'.$id);
             #stores the decoded json from the API request as an array
             $data = (array) json_decode($details);
             
