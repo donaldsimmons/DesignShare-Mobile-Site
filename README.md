@@ -7,9 +7,9 @@ DesignShare Mobile Website
 
 <h2>Code & Technologies</h2>
 
-<p>DesignShare is a PHP-driven web site, that utilizes a responsive design to provide easy access to mobile users. It relies on a combination of PHP5 and MySQL to execute back-end functionality, such as user logins, commenting, and storing lists of favorite designs. EllisLab, Inc.'s CodeIgniter framework was included in the build to ensure the project's timely completion, and was instrumental in shortening the time spent in development. jQuery Mobile and the jQuery Mobile ThemeBuilder were used to simplify the normal CSS styling, and factored in heavily to the development of several pages on the site.</p>
+<p>DesignShare is a PHP-driven web site, that utilizes a responsive design to provide easy access to mobile users. It relies on a combination of <strong>PHP5</strong> and <strong>MySQL</strong> to execute back-end functionality, such as user logins, commenting, and storing lists of favorite designs. EllisLab, Inc.'s <strong>CodeIgniter</strong> framework was included in the build to ensure the project's timely completion, and was instrumental in shortening the time spent in development. <strong>jQuery Mobile</strong> and the <strong>jQuery Mobile ThemeBuilder</strong> were used to simplify the normal <strong>CSS</strong> styling, and factored in heavily to the development of several pages on the site.</p>
 
-<p>Additionally, the site draws data from Dribbble.com's public API, and returns results for individual artwork and artists in the form of JSON objects. These objects require decoding and manipulation at several points during the use of the site, and are manipulated through the use of PHP.</p>
+<p>Additionally, the site draws data from <strong>Dribbble.com's public API</strong>, and returns results for individual artwork and artists in the form of <strong>JSON</strong> objects. These objects require decoding and manipulation at several points during the use of the site, and are manipulated through the use of PHP.</p>
 
 <h2>Access Instructions</h2>
 
