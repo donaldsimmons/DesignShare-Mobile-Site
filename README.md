@@ -1,33 +1,16 @@
-mdd-project
+DesignShare Mobile Website
 ===========
 
-The DesignShare Application built for the 1303 Mobile Device Deployment class.
+<h2>Summary</h2>
 
+<p>The DesignShare mobile website is a tool for designers to share concepts and inspiration with other designers. It was designed and built as a project for the completion of my Bachelor's Degree program, and uses several popular web technologies. In addition, DesignShare is relient on access to a public API to gather artwork and designer information from the internet. The online application allows users to view artwork and design concepts from other users, to view designers' other work and websites, and to collect and curate sets of artwork that they find interesting. Comments can be added by individual users to provide an interactive experience for other DesignShare users, and to foster the communication between designers that allows for their growth as artists.</p>
 
-This app uses PHP and MySQL, as well as the CodeIgniter Framework. SQL Dumps will be located in a
-'sql_database' directory. Please install the database prior to using the app, in order to use
-application and its features.
+<h2>Code & Technologies</h2>
 
+<p>DesignShare is a PHP-driven web site, that utilizes a responsive design to provide easy access to mobile users. It relies on a combination of PHP5 and MySQL to execute back-end functionality, such as user logins, commenting, and storing lists of favorite designs. EllisLab, Inc.'s CodeIgniter framework was included in the build to ensure the project's timely completion, and was instrumental in shortening the time spent in development. jQuery Mobile and the jQuery Mobile ThemeBuilder were used to simplify the normal CSS styling, and factored in heavily to the development of several pages on the site.</p>
 
+<p>Additionally, the site draws data from Dribbble.com's public API, and returns results for individual artwork and artists in the form of JSON objects. These objects require decoding and manipulation at several points during the use of the site, and are manipulated through the use of PHP.</p>
 
+<h2>Access Instructions</h2>
 
--------///  UPDATE 03-15-12  ///-----------
-
-The DesignShare app will no longer feature upload functionality as originally intended.
-Instead, the platform will display art from the Dribbble API, allow for app users to makes lists
-of their favorite designs, and to comment on these designs.
-
-
-Notes on File Structure and Files
-
-The CodeIgniter framework structure can be seen from the root directory, and contains the application and system directories and the the index.php file. Any other directories in the root directory were are extra content added to house materials for the site.
-
--My controllers, models, and views, will all be in the appropriately named folders, inside the "application" directory. Configuration files for the framework are located in the "config" folder, inside the "application" directory. No other directories in the "application" folder were modified during site construction.
-
--The "assets" folder (in the root) contains two subfolders: an "images" folder that contains the logo for the site, and a "style_tiles" folder that contains all of the style tiles for the site's pages.
-
--The "css" folder (in the root) contains the custom css for the DesignShare site, including the media queries for the site. The default and themed jQuery Mobile css will be located with the jQury Mobile files in the "library" directory.
-
--The "libraries" folder (in the root) contains one subfolder and various files related to the jQuery Mobile library. This folder houses all of the jQuery Mobile code that is used in the site. An "images" subfolder contains image files used by jQuery Mobile, while the files are all pieces of the jQuery Mobile library.
-
--The "sql_database" holds the database for the site.
+<p>Because several site features require a profile to track a user's activity and favorites, access to the site is dependent on the creation and use of a new user profile. Feel free to create a new user profile, and to explore all of the site's features from any device!</p>
